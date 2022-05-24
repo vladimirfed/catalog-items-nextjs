@@ -16,6 +16,11 @@ a {
 }
 
 
+.catalog{
+  display: grid;
+  
+}
+
 
 .filters{
   display: flex;
@@ -73,11 +78,6 @@ opacity: 1;
   width: 80%;
   height: 30px;
 }
-
-
-
-
-
 
 
 
