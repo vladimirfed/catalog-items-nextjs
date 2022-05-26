@@ -1,0 +1,50 @@
+// logos properties
+
+.mainlogo {
+  margin-left: 8rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  height: 2.19rem;
+  width: 12.54rem;
+  transform: scale(1.1);
+  background-image: url(../src/icons/PragueLabsLogo.svg);
+}
+
+.instantBookableIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-top: .8rem;
+  transform: scale(1.1);
+  background-image: url(../src/icons/IconBooking.svg);
+}
+
+.toiletIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconToilet.svg);
+  margin: 12px;
+}
+
+.showerIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconShower.svg);
+  margin: 12px;
+}
+
+.sleepCapacityIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconBed.svg);
+  margin-right: 12px;
+}
+
+.passengersCapacityIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconPassenger.svg);
+  margin-right: 12px;
+}
+
+
+

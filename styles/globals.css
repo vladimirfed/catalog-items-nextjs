@@ -1,9 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;1,400&display=swap");
+.price_filter .price_inputs input, .toggle_reserve .toggleReserveSelect .options, .toggle_reserve .toggleReserveSelect, .type_filter .types .type .type_name {
+  font: normal normal normal 14px/16px Roboto;
+  letter-spacing: 0px;
+  color: #1f2244;
+  opacity: 1;
+}
+
+.mainlogo {
+  margin-left: 8rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  height: 2.19rem;
+  width: 12.54rem;
+  transform: scale(1.1);
+  background-image: url(../src/icons/PragueLabsLogo.svg);
+}
+
+.instantBookableIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-top: 0.8rem;
+  transform: scale(1.1);
+  background-image: url(../src/icons/IconBooking.svg);
+}
+
+.toiletIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconToilet.svg);
+  margin: 12px;
+}
+
+.showerIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconShower.svg);
+  margin: 12px;
+}
+
+.sleepCapacityIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconBed.svg);
+  margin-right: 12px;
+}
+
+.passengersCapacityIcon {
+  height: 20px;
+  width: 20px;
+  background-image: url(../src/icons/IconPassenger.svg);
+  margin-right: 12px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -15,191 +68,296 @@ a {
   box-sizing: border-box;
 }
 
-
-.catalog{
+.catalog {
   display: grid;
-  
 }
 
-
-.filters{
-  display: flex;
-  margin: 100px;
-  padding-right: 30px;
-  justify-content: space-between;
+.filters {
+  display: grid;
+  grid-template-columns: 30% 49% 21%;
 }
 
-.type_filter{
+.type_filter {
+  height: 10.5rem;
+  display: grid;
+  grid-template-rows: 20% 1fr;
+  grid-gap: 15px;
+  border: 1px solid #edeae3;
+  opacity: 1;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.type_filter .filter_text {
+  font: normal normal normal 16px/16px Roboto;
+  color: #9c8c8c;
+  opacity: 1;
+  padding-left: 0.6rem;
+}
+.type_filter .types {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 15px;
-  list-style-type: none;
-
-
 }
-.type{
-  background: var(--white) 0% 0% no-repeat padding-box;
-border: 2px solid var(--green);
-background: #FFFFFF 0% 0% no-repeat padding-box;
-border: 3px solid #119383;
-border-radius: 8px;
-opacity: 1;
-width: 156px;
-height: 88px;
-
-}
-
-
-.toggle_reserve{
-  column-gap: 10px;
-  color: var(--dark-grey);
-font: normal normal normal 26px/26px Roboto;
-color: #9C8C8C;
-opacity: 1;
-}
-.instantBook{
-  display: flex;
-  column-gap: 10px;
-}
-.instantBookableIcon{
-  height: 16px;
-  width: 16px;
-  margin-top: 6px;
-  transform: scale(1.5);
-  background-image: url(../src/icons/IconBooking.svg);
-}
-.toggleReserveSelect{
-  background: #ffffff;
-  border: 2px solid #119383;
-  border-radius: 8px;
-  transform: scale(1.5);
-  margin-left: 30px;
-  margin-top: 20px;
-  width: 80%;
-  height: 30px;
-}
-
-
-
-
-.karavans{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 32px;
-  margin: 100px;
-}
-
-.vehicleType{
-  color: red;
-}
-
-.karavan{
-  background: var(--white) 0% 0% no-repeat padding-box;
-  border: 1px solid var(--beige);
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+.type_filter .types .type {
   border: 1px solid #EDEAE3;
   border-radius: 8px;
+  width: 90%;
+  height: 4.6rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.type_filter .types .type .type_inpit {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  width: 10%;
+  height: 4.6rem;
+}
+.type_filter .types .type input[type=checkbox]:checked ~ div {
+  border: 2.5px solid #119383;
+  border-radius: 8px;
+}
+.type_filter .types .type .type_name {
+  margin-left: 0.5rem;
+  text-align: left;
+  width: 10%;
+  height: 2.3rem;
 }
 
-.vehicleType{
-  color: var(--orange);
-text-align: left;
-font: normal normal bold 12px/12px Roboto;
-letter-spacing: 1px;
-color: #FF5E55;
-text-transform: uppercase;
-opacity: 1;
+.toggle_reserve {
+  border: 1px solid #edeae3;
+  opacity: 1;
+  padding-top: 1.4rem;
+  padding-right: 4.4rem;
+  font: normal normal normal 16px/16px Roboto;
+  color: #9c8c8c;
+  opacity: 1;
+}
+.toggle_reserve .instantBook {
+  display: flex;
+  column-gap: 0.6rem;
+  padding-left: 8%;
+}
+.toggle_reserve .instantBook .instantBookableIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-top: -3px;
+  transform: scale(1.1);
+  background-image: url(../src/icons/IconBooking.svg);
+}
+.toggle_reserve .toggleReserveSelect {
+  border: 1px solid #119383;
+  border-radius: 8px;
+  transform: scale(1.5);
+  margin-left: 20%;
+  margin-top: 1.8rem;
+  width: 50%;
+  height: 30px;
+  text-align: left;
+}
+.toggle_reserve .toggleReserveSelect .options {
+  text-align: left;
 }
 
-.location{
-  color: var(--dark-blue);
-text-align: left;
-font: normal normal normal 14px/16px Roboto;
-letter-spacing: 0px;
-color: #1F2244;
-opacity: 1;
+.price_filter {
+  padding-top: 1.4rem;
+  padding-left: 7.3rem;
+  border: 1px solid #edeae3;
+  opacity: 1;
+}
+.price_filter .filter_text {
+  font: normal normal normal 16px/16px Roboto;
+  color: #9c8c8c;
+  opacity: 1;
+}
+.price_filter .price_slider {
+  color: #119383;
+  width: 85%;
+  margin-top: 1.1rem;
+  margin-left: 0.7rem;
+}
+.price_filter .price_inputs {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1.8rem;
+}
+.price_filter .price_inputs input {
+  width: 50%;
+  margin-right: 1rem;
+  height: 3rem;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #edeae3;
+  border-radius: 8px;
+  opacity: 1;
+  text-align: left;
 }
 
-.name{
-  color: var(--dark-blue);
-text-align: left;
-font: normal normal bold 24px/24px Roboto;
-letter-spacing: 0px;
-color: #1F2244;
-opacity: 1;
+.karavans {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 2rem;
 }
-
-.img_wrap {
-  height: 330px;
+.karavans .karavan:hover {
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+}
+.karavans .karavan {
+  border: 1px solid #edeae3;
+  border-radius: 8px;
+  height: auto;
+  width: 92.5%;
+  margin: 1rem;
+}
+.karavans .karavan .vehicleType {
+  text-align: left;
+  font: normal normal bold 12px/12px Roboto;
+  letter-spacing: 1px;
+  color: #ff5e55;
+  text-transform: uppercase;
+  opacity: 1;
+}
+.karavans .karavan .location {
+  color: #1f2244;
+  opacity: 1;
+}
+.karavans .karavan .name {
+  font: normal normal bold 24px/24px Roboto;
+  letter-spacing: 0px;
+  color: #1f2244;
+  opacity: 1;
+}
+.karavans .karavan .img_wrap {
+  height: auto;
+  width: 100%;
+  position: relative;
   overflow: hidden;
   border-radius: 8px;
 }
-
-.parameters{
+.karavans .karavan .img_wrap img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+.karavans .karavan .parameters {
   margin: 12px;
 }
-.vehicleType{
+.karavans .karavan .vehicleType {
+  margin: 12px;
+  color: #FF5E55;
+}
+.karavans .karavan .name {
   margin: 12px;
 }
-.name{
+.karavans .karavan .underline {
+  background: #edeae3 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.karavans .karavan .location {
   margin: 12px;
 }
-.underline{
-  background: var(--beige) 0% 0% no-repeat padding-box;
-background: #EDEAE3 0% 0% no-repeat padding-box;
-opacity: 1;
-}
-.location{
-  margin: 12px;
-}
-
-/* lsdknfl */
-.parametersIcon{
+.karavans .karavan .parametersIcon {
   display: flex;
 }
-
-.passengersCapacity{
-  display: flex;
-  margin: 12px;
-}
-.passengersCapacityIcon{
-  height: 20px;
-  width: 20px;
-  background-image: url(../src/icons/IconPassenger.svg);
-  margin-right: 12px;
-}
-
-.sleepCapacity{
+.karavans .karavan .passengersCapacity {
   display: flex;
   margin: 12px;
 }
-.sleepCapacityIcon{
-  height: 20px;
-  width: 20px;
-  background-image: url(../src/icons/IconBed.svg);
-  margin-right: 12px;
-}
-
-.toiletIcon{
-  height: 20px;
-  width: 20px;
-  background-image: url(../src/icons/IconToilet.svg);
+.karavans .karavan .sleepCapacity {
+  display: flex;
   margin: 12px;
 }
-
-.showerIcon{
-  height: 20px;
-  width: 20px;
-  background-image: url(../src/icons/IconShower.svg);
-  margin: 12px;
+.karavans .karavan .price {
+  font: normal normal normal 16px/16px Roboto;
+  letter-spacing: 0px;
+  color: #9c8c8c;
+  display: grid;
+  margin-left: 2%;
+  grid-template-columns: 70% 1fr 7%;
+}
+.karavans .karavan .price .price_number {
+  font: normal normal bold 16px/16px Roboto;
+  letter-spacing: 0px;
+  color: #1F2244;
+  opacity: 1;
 }
 
-.price{
-  color: var(--dark-grey);
-font: normal normal normal 16px/16px Roboto;
-letter-spacing: 0px;
-color: #9C8C8C;
-display: grid;
-margin-left: 2%;
-grid-template-columns: 70% 1fr 7% ;
+@media (max-width: 400px) {
+  .catalog {
+    display: grid;
+  }
+
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .price_filter {
+    padding-top: 1.4rem;
+    padding-left: 1rem;
+    border: 1px solid #edeae3;
+    opacity: 1;
+  }
+  .price_filter .price_slider {
+    color: #119383;
+    width: 90%;
+    margin-top: 0.1rem;
+    margin-left: 0.7rem;
+  }
+  .price_filter .price_inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .price_filter .price_inputs input {
+    width: 50%;
+    margin-right: -0.8rem;
+    margin-left: 0rem;
+    height: 3rem;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #edeae3;
+    border-radius: 8px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .type_filter {
+    height: 16rem;
+    grid-template-rows: 10% 1fr;
+  }
+  .type_filter .types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .toggle_reserve {
+    height: 8rem;
+  }
+
+  .mainlogo {
+    margin-left: 24%;
+    margin-right: 24%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    height: 2.19rem;
+    width: 12.54rem;
+    transform: scale(1.1);
+    background-image: url(../src/icons/PragueLabsLogo.svg);
+  }
+
+  .karavans {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .img_wrap img {
+    height: 180px;
+  }
 }
+
+/*# sourceMappingURL=globals.css.map */

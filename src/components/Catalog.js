@@ -1,137 +1,60 @@
 import { useState, useEffect } from "react";
-import Slider from "@mui/material/Slider";
-
 import InstantBookFilter from "./filters/InstantBookFilter";
 import TypeFilter from "./filters/TypeFilter";
 import PriceFilter from "./filters/PriceFilter";
+import Karavans from "./Karavans";
 
 const Catalog = ({ items }) => {
   const [data, setData] = useState(items);
   const [filterData, setFilterData] = useState(data);
-  const [filterPriceData, setFilterPriceData] = useState(filterData);
-  const [value, setValue] = useState([0, 10000]);
+  const [filterBook, setFilterBook] = useState("false");
+  const [filterPrice, setFilterPrice] = useState([0, 10000]);
+  const [filterType, setFilterType] = useState([
+    "Intergrated",
+    "BuiltIn",
+    "Alcove",
+    "Campervan",
+  ]);
 
-  const [bookFilter, setBookFilter] = useState(data);
-  const [filterType, setFilterType] = useState("");
-  const [priceValue, setPriceValue] = useState([0, 10000]);
+  const bookFilter = (e) => setFilterBook(e.target.value);
 
-  useEffect(() => {
-    setData(data);
-  }, [data]);
+  const priceFilter = (e) => setFilterPrice(e.target.value);
 
-  function typeFilter(vehicleType) {
-    let newFilterData = [...filterData].filter(
-      (el) => el.vehicleType === vehicleType
-    );
-    setData(newFilterData);
-  }
-
-  function instantbookFilter(e) {
-    e.target.value === "true"
-      ? setData([...filterData].filter((el) => el.instantBookable === true))
-      : setData([...filterData].filter((el) => el));
-    console.log(data);
-  }
-
-  const handleChangePrice = (e, newValue ) => {
-    console.log(filterData.vehicleType[1])
-    setValue(newValue);
-    setData(
-      [...filterData].filter(
-        (el) => el.price >= newValue[0] && el.price <= newValue[1] 
-      )
-    );
+  const typeFilter = (e) => {
+    e.target.checked
+      ? setFilterType([...filterType, e.target.value])
+      : setFilterType(filterType.filter((id) => id !== e.target.value));
   };
 
-
-
-  function commonFilter(vehicleType, e, newValue ){
-
-  }
-
-
-
-
+  useEffect(() => {
+    let dataForRender = [];
+    let multiFilter = [...filterData]
+      .filter((el) => el.price >= filterPrice[0] && el.price <= filterPrice[1])
+      .filter((el) =>
+        filterBook !== "false"
+          ? el.instantBookable.toString() === filterBook
+          : el
+      )
+      .filter((el) => {
+        if (filterType.length === 0) {
+          return el;
+        } else {
+          for (let key of filterType) {
+            el.vehicleType === key ? dataForRender.push(el) : null;
+          }
+        }
+      });
+    setData(dataForRender);
+  }, [filterPrice, filterBook, filterType]);
 
   return (
     <div className="catalog">
-      <Slider
-        className="price-slider"
-        max={10000}
-        value={value}
-        onChange={handleChangePrice}
-      />
       <div className="filters">
-        <div className="price_filter">
-          <Slider value={value} onChange={handleChangePrice} />
-        </div>
-        <TypeFilter typeFilter={typeFilter} />
-
-          <InstantBookFilter instantbookFilter={instantbookFilter} />
+        <PriceFilter filterPrice={filterPrice} priceFilter={priceFilter} />
+        <TypeFilter filterType={filterType} typeFilter={typeFilter} />
+        <InstantBookFilter bookFilter={bookFilter} />
       </div>
-
-      <div className="karavans">
-        {data &&
-          data.map(
-            ({
-              name,
-              price,
-              pictures,
-              vehicleType,
-              location,
-              passengersCapacity,
-              sleepCapacity,
-              toilet,
-              shower,
-              instantBookable,
-            }) => (
-              <div key={[name, pictures]} className="karavan">
-                <div className="img_wrap">
-                  <img
-                    src={pictures[0]}
-                    width="100%"
-                    height="auto"
-                    alt={name}
-                  />
-                </div>
-                <div className="parameters">
-                  <div className="vehicleType">{vehicleType} </div>
-                  <div className="name">
-                    <a href="#">{name}</a>
-                  </div>
-                  <hr className="parameters" />
-                  <div className="location">{location} </div>
-                  <div className="parametersIcon">
-                    <div className="passengersCapacity">
-                      <div className="passengersCapacityIcon"> </div>
-                      {passengersCapacity}
-                    </div>
-                    <div className="sleepCapacity">
-                      <div className="sleepCapacityIcon"> </div> {sleepCapacity}
-                    </div>
-                    <div className="toilet">
-                      {toilet === true ? (
-                        <div className="toiletIcon"> </div>
-                      ) : null}
-                    </div>
-                    <div className="shower">
-                      {shower === true ? (
-                        <div className="showerIcon"> </div>
-                      ) : null}
-                    </div>
-                  </div>
-                  <hr className="parameters" />
-                  <div className="price">
-                    <p>Cena od:</p> <p>{price} Kc/den</p>
-                    {instantBookable === true ? (
-                      <div className="instantBookableIcon"> </div>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            )
-          )}
-      </div>
+      <Karavans data={data} />
     </div>
   );
 };
