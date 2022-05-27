@@ -6,7 +6,7 @@
   - For price slider i used 'Material UI Range Slider', so please be sure that all dependencies has been installed. All you can find in 'package.json'.
   - For uniq key to render the catalog's items i used 'name' parameter, cause usually there should be some IDs on the server side. In real-life project for IDs on the client side i'll defenetly use kind of [uuidv4](https://www.npmjs.com/package/uuidv4) or similar.
  - I had some problem with Next's <Image />, even when i made a config for 'next.config.js' that allow to get the pictures from the
-  ``` domains: ['d35xwkx70uaomf.cloudfront.net'] ```
+  ```  ['d35xwkx70uaomf.cloudfront.net'] ```
  - Made a breakpoint on 400px for mobile.
 
 ## How to run the project
