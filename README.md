@@ -19,7 +19,7 @@ npm install
 yarn install
 ```
 
-Dev will run on  port 3000 with followin commands:
+Dev will run on  port 3000 with following commands:
 
 ```bash
 npm run dev
