@@ -22,7 +22,7 @@ const Home = ({ items }) => {
 
   return (
     <>
-      <Heading><div className="mainlogo"></div></Heading>
+      <Heading>Catalog</Heading>
       <Catalog items={items} />
     </>
   );
